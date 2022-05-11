@@ -12,12 +12,16 @@ wget -O id_rsa.pub https://raw.githubusercontent.com/tamagochka/configs/main/id_
 cp .zshrc /root
 cp .vimrc /root
 
+chown user:user .zshrc
+chown user:user .vimrc
+
 mkdir .ssh
 cat id_rsa.pub > .ssh/authorized_keys
 chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
+chown -R user:user .ssh
 rm id_rsa.pub
-chsh -s /bin/zsh
+chsh -s /bin/zsh user
 chsh -s /bin/zsh root
 
 timedatectl set-timezone 'Europe/Moscow'
