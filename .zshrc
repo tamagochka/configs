@@ -27,7 +27,11 @@ alias calc='zcalc -f'
 autoload -U select-word-style
 select-word-style bash
 
-
+# full text search by command history
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
 # autocomplete
 autoload -U compinit promptinit
@@ -100,16 +104,16 @@ SAVEHIST=100000                             # history size in history file
 
 bindkey "[1~" beginning-of-line               # Home
 bindkey "[4~" end-of-line                     # End
-bindkey "^[OA" up-line-or-search                # Up-arrow
-bindkey "^[OB" down-line-or-search              # Down-arrow
+bindkey "^[OA" up-line-or-beginning-search      # Up-arrow
+bindkey "^[OB" down-line-or-beginning-search    # Down-arrow
 bindkey "OC" forward-char                     # Left-arrow
 bindkey "OD" backward-char                    # Right-arrow
 bindkey "[3~" delete-char                     # Delete
 bindkey "" backward-delete-char               # Breakspace
 bindkey "[2~" overwrite-mode                  # Insert
 bindkey "[Z" expand-or-complete
-bindkey "^[[5~" beginning-of-buffer-or-history  # PgUp
-bindkey "^[[6~" end-of-buffer-or-history        # PgDown
+#bindkey "^[[5~" beginning-of-buffer-or-history  # PgUp
+#bindkey "^[[6~" end-of-buffer-or-history        # PgDown
 
 
 
