@@ -23,6 +23,10 @@ RPROMPT="%{$reset_color%}% %(?,%{$fg[green]%}:%)%{$reset_color%},%{$fg[red]%}:(%
 autoload -U zcalc # calculator
 alias calc='zcalc -f'
 
+# ctrl+z stops on a directory separator "/" or "-"
+autoload -U select-word-style
+select-word-style bash
+
 
 
 # autocomplete
@@ -79,14 +83,16 @@ HISTFILE=~/.zsh_history                     # history file
 HISTSIZE=100000                             # one terminal history size
 SAVEHIST=100000                             # history size in history file
 
-function backward-kill-to-slash() {
-    local WORDCHARS="${WORDCHARS:s,/,} \\\'"
-    [[ $BUFFER != */* ]] && return
-    [[ $BUFFER == [^/]##/ ]] && return
-
-    zle backward-kill-word
-}
-zle -N backward-kill-to-slash
+# alt+w delete line to directory separator
+#function backward-kill-to-slash() {
+#    local WORDCHARS="${WORDCHARS:s,/,} \\\'"
+#    [[ $BUFFER != */* ]] && return
+#    [[ $BUFFER == [^/]##/ ]] && return
+#
+#    zle backward-kill-word
+#}
+#zle -N backward-kill-to-slash
+#bindkey "^[w" backward-kill-to-slash           # Alt+w
 
 # Ctrl+v - show key code
 # bindkey - list all binded keys
@@ -104,7 +110,6 @@ bindkey "[2~" overwrite-mode                  # Insert
 bindkey "[Z" expand-or-complete
 bindkey "^[[5~" beginning-of-buffer-or-history  # PgUp
 bindkey "^[[6~" end-of-buffer-or-history        # PgDown
-bindkey "^[d" backward-kill-to-slash           # Alt+d
 
 
 
