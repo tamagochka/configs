@@ -1,11 +1,11 @@
 #!/bin/bash
 
 echo "-------------------- system updating --------------------"
-apt-get update
-apt-get upgrade -y
+apt update
+apt upgrade -y
 
 echo "-------------------- installing software --------------------"
-apt-get install -y zsh vim wget screenfetch git tmux mc curl
+apt install -y zsh vim wget screenfetch git tmux mc curl
 
 echo "-------------------- downloading configuration files --------------------"
 wget -O .zshrc https://raw.githubusercontent.com/tamagochka/configs/main/.zshrc
