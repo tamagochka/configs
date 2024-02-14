@@ -10,7 +10,7 @@ apt install -y zsh vim wget screenfetch git tmux mc curl
 echo "-------------------- downloading configuration files --------------------"
 wget -O .zshrc https://raw.githubusercontent.com/tamagochka/configs/main/.zshrc
 wget -O .vimrc https://raw.githubusercontent.com/tamagochka/configs/main/.vimrc
-wget -O id_rsa.pub https://raw.githubusercontent.com/tamagochka/configs/main/id_rsa.pub
+wget -O id_ed25519.pub https://raw.githubusercontent.com/tamagochka/configs/main/id_ed25519.pub
 
 echo "-------------------- coping files and setting permissions --------------------"
 cp .zshrc /root
@@ -25,7 +25,7 @@ chsh -s /bin/zsh root
 
 echo "-------------------- configuring ssh --------------------"
 mkdir .ssh
-cat id_rsa.pub > .ssh/authorized_keys
+cat id_ed25519.pub > .ssh/authorized_keys
 chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
 chown -R user:user .ssh
