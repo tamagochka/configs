@@ -1,12 +1,14 @@
 
-#[[ $TERM != "screen" ]] && (tmux attach-session || tmux new-session)
-if [[ $TERM != "screen" ]]; then
-	tmux has-session
-	if [[ $? -ne 0 ]]; then
-		tmux new-session
-	else
-		tmux attach-session
-	fi
+alias tmux="tmux -S /tmp/tmux"
+
+tmux ls | grep attached
+if [[ $? -ne 0 ]]; then
+    tmux has-session
+    if [[ $? -ne 0 ]]; then
+        tmux new-session
+    else
+        tmux attach-session
+    fi
 fi
 
 screenfetch
