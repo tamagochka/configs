@@ -114,8 +114,11 @@ bindkey "[3~" delete-char                     # Delete
 bindkey "" backward-delete-char               # Breakspace
 bindkey "[2~" overwrite-mode                  # Insert
 bindkey "[Z" expand-or-complete
-#bindkey "^[[5~" beginning-of-buffer-or-history  # PgUp
-#bindkey "^[[6~" end-of-buffer-or-history        # PgDown
+bindkey "^[[5~" beginning-of-buffer-or-history  # PgUp
+bindkey "^[[6~" end-of-buffer-or-history        # PgDown
+bindkey "^[[1;5D" backward-word                 # Ctrl+Left
+bindkey "^[[1;5C" forward-word                  # Ctrl+Right
+
 
 
 
