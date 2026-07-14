@@ -123,7 +123,7 @@ bindkey "^[[1;5C" forward-word                  # Ctrl+Right
 
 
 # colorized grep
-export GREP_COLOR="1;32"
+export GREP_COLORS="mt=1;32"
 alias grep='grep -i --color=always'
 # colorized ls in LS_COLORS
 alias ls='ls --color=always --group-directories-first -hF'
